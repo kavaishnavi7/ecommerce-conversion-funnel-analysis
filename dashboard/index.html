@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="An evidence-based e-commerce conversion funnel dashboard for the SyntecxHub Data Analytics Internship."
+    >
+    <meta name="theme-color" content="#f4f7fb">
+    <title>E-commerce Conversion Funnel Analysis | SyntecxHub</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#overview" aria-label="E-commerce funnel dashboard home">
+          <span class="brand-mark" aria-hidden="true">EF</span>
+          <span class="brand-name">Commerce<span>Lens</span></span>
+        </a>
+        <nav class="top-nav" aria-label="Dashboard sections">
+          <a href="#funnel">Funnel</a>
+          <a href="#segments">Segments</a>
+          <a href="#insights">Insights</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="overview" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="live-dot"></span> DATA ANALYTICS · OCTOBER 2025</p>
+            <h1 id="page-title">E-commerce Conversion<br class="desktop-break"> Funnel Analysis</h1>
+            <p class="hero-subtitle">SyntecxHub Data Analytics Internship — Project 3</p>
+            <p class="hero-description">
+              A clear view of how sessions move from Browse to Purchase, where
+              customers drop off, and how conversion differs across devices,
+              channels, and product categories.
+            </p>
+          </div>
+          <div class="hero-summary" aria-label="Overall funnel conversion">
+            <span class="summary-label">BROWSE-TO-PURCHASE</span>
+            <strong id="hero-conversion">—</strong>
+            <span class="summary-footnote">overall conversion</span>
+            <span class="summary-spark" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </span>
+          </div>
+        </section>
+
+        <section class="kpi-grid" id="kpis" aria-label="Key performance indicators"></section>
+
+        <section class="section-card funnel-section" id="funnel" aria-labelledby="funnel-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">CUSTOMER JOURNEY</p>
+              <h2 id="funnel-title">Conversion funnel</h2>
+            </div>
+            <span class="section-note">Unique sessions at each event</span>
+          </div>
+          <div class="funnel-layout">
+            <div class="funnel-visual-wrap">
+              <div class="funnel-visual" id="funnel-visual" role="img" aria-label="Funnel showing session volume for each stage"></div>
+              <div class="funnel-axis"><span>100% of Browse sessions</span><span>Share reaching stage</span></div>
+            </div>
+            <div class="table-wrap">
+              <table class="funnel-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Stage</th>
+                    <th scope="col">Sessions</th>
+                    <th scope="col">Stage conversion</th>
+                    <th scope="col">Drop-off</th>
+                  </tr>
+                </thead>
+                <tbody id="funnel-table-body"></tbody>
+              </table>
+              <p class="table-footnote">Stage conversion is measured against the previous stage. Overall funnel rates use Browse as the denominator.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="analysis-grid" aria-label="Conversion and drop-off analysis">
+          <article class="section-card chart-card">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">STEP-BY-STEP</p>
+                <h2>Stage conversion</h2>
+              </div>
+              <span class="chart-badge">%</span>
+            </div>
+            <p class="card-description">Share of sessions progressing to the next funnel event.</p>
+            <div id="stage-conversion-chart" class="bar-list" aria-label="Stage-to-stage conversion rates"></div>
+          </article>
+
+          <article class="section-card chart-card dropoff-card">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">LEAKAGE ANALYSIS</p>
+                <h2>Where sessions drop off</h2>
+              </div>
+              <span class="chart-badge coral-badge">!</span>
+            </div>
+            <p class="card-description">The cart-to-checkout step loses the most sessions by count.</p>
+            <div id="dropoff-chart" class="bar-list" aria-label="Session drop-off counts and rates"></div>
+            <div class="bottleneck-callout">
+              <span class="callout-icon" aria-hidden="true">↘</span>
+              <p><strong>Largest absolute loss</strong><br><span id="largest-loss">—</span></p>
+            </div>
+            <div class="bottleneck-callout rate-callout">
+              <span class="callout-icon" aria-hidden="true">%</span>
+              <p><strong>Highest drop-off rate</strong><br><span id="highest-dropoff-rate">—</span></p>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-card segments-section" id="segments" aria-labelledby="segments-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PERFORMANCE BREAKDOWN</p>
+              <h2 id="segments-title">Conversion by segment</h2>
+            </div>
+            <span class="section-note">Purchase sessions ÷ Browse sessions</span>
+          </div>
+          <div class="segment-grid">
+            <article class="segment-panel">
+              <div class="segment-title">
+                <span class="segment-icon device-icon" aria-hidden="true">▣</span>
+                <div><h3>Device</h3><p>Conversion rate by device</p></div>
+              </div>
+              <div id="device-chart" class="bar-list segment-bars"></div>
+            </article>
+            <article class="segment-panel">
+              <div class="segment-title">
+                <span class="segment-icon channel-icon" aria-hidden="true">↗</span>
+                <div><h3>Acquisition channel</h3><p>Conversion rate by channel</p></div>
+              </div>
+              <div id="channel-chart" class="bar-list segment-bars"></div>
+            </article>
+            <article class="segment-panel">
+              <div class="segment-title">
+                <span class="segment-icon category-icon" aria-hidden="true">◇</span>
+                <div><h3>Product category</h3><p>Conversion rate by category</p></div>
+              </div>
+              <div id="category-chart" class="bar-list segment-bars"></div>
+            </article>
+          </div>
+          <p class="segment-footnote">
+            Segment conversion rates are calculated from the event and dimension
+            values recorded in the supplied dataset.
+          </p>
+        </section>
+
+        <section class="revenue-strip" aria-labelledby="revenue-title">
+          <div class="revenue-intro">
+            <p class="eyebrow">PURCHASE PERFORMANCE</p>
+            <h2 id="revenue-title">Revenue insights</h2>
+            <p>Revenue values are taken from Purchase events in the analysis.</p>
+          </div>
+          <div class="revenue-metric">
+            <span>Total purchase revenue</span>
+            <strong id="revenue-total">—</strong>
+          </div>
+          <div class="revenue-metric">
+            <span>Purchase sessions</span>
+            <strong id="revenue-purchases">—</strong>
+          </div>
+          <div class="revenue-metric">
+            <span>Average order value</span>
+            <strong id="revenue-aov">—</strong>
+          </div>
+        </section>
+
+        <section class="insight-grid" id="insights" aria-label="Business insights and recommendations">
+          <article class="section-card insight-card">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">WHAT THE DATA SAYS</p>
+                <h2>Business insights</h2>
+              </div>
+              <span class="chart-badge insight-badge">i</span>
+            </div>
+            <ul class="insight-list" id="business-insights"></ul>
+          </article>
+          <article class="section-card recommendation-card">
+            <div class="section-heading compact-heading">
+              <div>
+                <p class="eyebrow">NEXT STEPS</p>
+                <h2>Recommendations</h2>
+              </div>
+              <span class="chart-badge recommendation-badge">→</span>
+            </div>
+            <ul class="recommendation-list">
+              <li><span>01</span><p><strong>Improve cart progression</strong>Clarify cart contents, total pricing, delivery costs, and the action to continue to checkout.</p></li>
+              <li><span>02</span><p><strong>Reduce checkout friction</strong>Test a shorter checkout, guest purchase options, clear payment choices, and visible delivery and returns information.</p></li>
+              <li><span>03</span><p><strong>Test purchase completion</strong>Use controlled experiments to identify changes that improve Checkout-to-Purchase conversion.</p></li>
+              <li><span>04</span><p><strong>Learn from stronger segments</strong>Investigate the tablet, email, and Electronics results and validate whether successful patterns transfer to other segments.</p></li>
+            </ul>
+          </article>
+        </section>
+
+        <p class="method-note">
+          This static presentation uses the results of the supplied October 2025
+          dataset and existing Python analysis. Segment differences are
+          descriptive and do not establish causation.
+        </p>
+      </main>
+
+      <footer class="site-footer">
+        <a class="footer-brand" href="#overview">CommerceLens</a>
+        <span>Built for SyntecxHub Data Analytics Internship</span>
+        <a href="https://github.com/kavaishnavi7" target="_blank" rel="noopener noreferrer">GitHub Profile <span aria-hidden="true">↗</span></a>
+      </footer>
+    </div>
+  </body>
+</html>
