@@ -2,9 +2,16 @@
 
 **SyntecxHub Data Analytics Internship — Project 3**
 
+### 🌐 Live Dashboard
+[View Live Dashboard](https://ecommerce-conversion-funnel-analysi.vercel.app/)
+
 ## Project overview
 
 This project analyzes e-commerce event data to measure movement through the conversion funnel from browsing to purchase. The notebook includes data quality checks, funnel and drop-off metrics, device/channel/product-category comparisons, visualizations, and business recommendations.
+
+## Live Dashboard
+
+[View Live Dashboard](https://ecommerce-conversion-funnel-analysi.vercel.app/)
 
 ## Business problem
 
